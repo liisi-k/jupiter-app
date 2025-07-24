@@ -23,7 +23,7 @@ A sleek and responsive Angular application with new design for ERR Jupiter websi
 
    ```bash
    git clone https://github.com/liisi-k/jupiter-app.git
-   cd jupiter-app
+   cd frontend
    
 2. **Install dependencies:**
       ```bash
