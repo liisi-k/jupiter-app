@@ -1,0 +1,33 @@
+<div class="frontpage">
+  <div *ngIf="!loading && !error">
+    <ng-container *ngFor="let ribbon of ribbons; let i = index">
+      <div *ngIf="ribbon.header && ribbon.data && ribbon.data.length > 0; else checkNoHeader" class="ribbonSection">
+        <h2 class="text ribbon">{{ ribbon.header }}</h2>
+        <div class="contentScroll">
+          <div *ngFor="let item of ribbon.data" class="content">
+            <div class="image">
+              <img [src]="item.verticalPhotos?.[0]?.photoUrlBase" alt="image" />
+              <div class="play-overlay"></div>
+            </div>
+            <h3 class="text title">{{ item.heading }}</h3>
+          </div>
+        </div>
+      </div>
+      <ng-template #checkNoHeader>
+        <ng-container *ngIf="!ribbon.header && ribbon.data && ribbon.data.length > 0">
+          <div class="ribbonSection bigSection">
+              <div *ngFor="let item of ribbon.data" class="bigSection content">
+                <div class="image">
+                  <img [src]="item.photos?.[0]?.photoUrlBase" alt="image" />
+                    <div class="textBox">
+                      <h1 class="text title bigSection">{{ item.heading }}</h1>
+                      <div class="text description" [innerHTML]="item.lead"></div>
+                    </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </ng-template>
+    </ng-container>
+  </div>
+</div>
